@@ -1,0 +1,4 @@
+Just better interface 
+    get better edit window and new itemform
+
+Make love and check the time, depending on the time make event happen.

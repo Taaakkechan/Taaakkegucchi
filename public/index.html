@@ -1,0 +1,114 @@
+<html>
+<head>
+    <!-- Without this '×' may not be rendered correctly //-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet"> //-->
+    <style>
+    body {
+        background: url('gfx/darkstone.png');
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-size: 16px;
+    }
+    .mainGame {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 0;
+        width: 800px;
+        min-height: 800px;
+        background-color: white;
+        background-repeat: repeat;
+        border: 5px solid gold;
+        top: 0px;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-user-select: none;
+        cursor: default;
+    }
+    .loading {
+        font-size: 50px;
+        color: white;
+    }
+    .taskButton:not(:last-child) {
+        margin-bottom: 10px;
+    }
+    /* https://stackoverflow.com/questions/7615009/disable-interpolation-when-scaling-a-canvas */
+    canvas {
+        image-rendering: optimizeSpeed;             /* Older versions of FF          */
+        image-rendering: -moz-crisp-edges;          /* FF 6.0+                       */
+        image-rendering: -webkit-optimize-contrast; /* Safari                        */
+        image-rendering: -o-crisp-edges;            /* OS X & Windows Opera (12.02+) */
+        image-rendering: pixelated;                 /* Awesome future-browsers       */
+        -ms-interpolation-mode: nearest-neighbor;
+    }
+    </style>
+    <title>Erai Erai</title>
+    <meta property='og:title' content='Spirit Quest'/>
+    <meta property='og:image' content='https://chrisflash.com/alttptest/preview.png'>
+    <meta property='og:description' content='SNES Zelda Inspired Browser Game'/>
+    <meta property='og:image:width' content='1345' />
+    <meta property='og:image:height' content='1177' />
+    <meta property='og:type' content='website'/>
+</head>
+<body>
+<div class="js-mainGame  mainGame">
+    <script>
+        window.version = '0.3.83';
+        // Only show the loading text if it takes more than .2 seconds to load
+        setTimeout(function () {
+            if (document.querySelector('.js-gameContent').style.display === 'none') {
+                document.querySelector('.js-loading').style.display = '';
+            }
+        }, 200);
+        const mainScript = document.createElement('script');
+        mainScript.src = `client.js?v=${version}`;
+        document.body.append(mainScript);
+        const mainStyles = document.createElement('link');
+        mainStyles.type = 'text/css';
+        mainStyles.rel = 'stylesheet'
+        mainStyles.href = `styles.css?v=${version}`;
+        document.head.append(mainStyles);
+    </script>
+    <div class="js-loading loading" style="display: none; padding: 20px; font-family: sans-serif;">
+        Loading...
+    </div>
+
+<!-- game -->
+    
+    <div class="js-gameContent gameContent">
+        <div style="text-align: right;">
+            <button id="baka">
+                baka
+            </button>
+        </div>
+        <div id="petContainer">
+             <div id="pet"></div>
+        </div>
+        
+        <div id="tasksList"></div>
+
+        <li id="newItemForm"> 
+            <div class="inputs">Due: <input id="dateInput" style="font-size: 25px;" type="date"/></div> 
+            <div class="inputs"><input id="timeInput" style="font-size: 25px;" type="time"/></div> 
+            <div class="inputs">Task: <input id="nameInput" style="font-size: 25px;"/> </div>
+            <div> 
+                <button id="enter" class="buttons"> Enter </button> 
+                <button id="cancelNew" class="buttons"> cancel </button>
+            </div>
+        </li>
+        
+        <div id="editWindow">
+            <button id="delete" class="edit">delete</button>
+            <button id="submit" class="edit">submit</button>
+            <button id="cancelEdit" class="edit">cancel</button>
+        </div>
+        <div id="hungerBarBack">
+            <div id="hungerBar"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
