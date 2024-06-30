@@ -1,4 +1,25 @@
-Just better interface 
-    get better edit window and new itemform
+Game 
+    add cooldown so the game doesn't break
 
-Make love and check the time, depending on the time make event happen.
+    add kill(reset) button
+
+    add game over/ game start
+
+    make deveolopement mode and test mode
+    easier to switch between the two and tweek the time
+
+    maybe change how fast it starts eating depending on how hungry it is.
+
+    deal with over 100% fullness
+
+Visuals
+    instead of cancel button make X on top right of any forms
+
+    make the date and time side by side in the newItems form
+
+    make graphics and implement them
+
+Code
+    make better class names? 
+
+    find way to organize code

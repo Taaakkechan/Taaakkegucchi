@@ -32,40 +32,89 @@ const tasksList = getDiv('tasksList');
 const editWindow = getDiv('editWindow');
 const hungerBar = getDiv('hungerBar');
 const pet = getDiv('pet');
+const hungerMeter = getDiv('hungerMeter');
+const loveMeter = getDiv('loveMeter')
 
 const state = {
 	tasks: [] as Task[],
 	taskIndex: 0,
-	time: 0,
+	editing: false,
 	pet: {
-		maxHealth: 4,
 		love: 0,
-		minusLove: 10,
-		plusLove: 2,
 		health: 4,
-		maxHunger: 1000,
 		hunger: 1000,
-		hungerRate: 0.2,
-		feed: 100,
-		maxSize: 600,
 		size: 200,
-		growSpeed: 0.2,
-		color: [
-			'red',
-			'yellow',
-			'green',
-			'blue',
-			],
 		alive: true,
 	}
 };
+const fps = 50;
+const sec = 1;
+const min = sec * 60;
+const hour = min * 60;
+const day = hour * 24;
+
+const petDef = {
+	maxHealth: 4,
+	minusLove: 10,
+	plusLove: 2,
+	maxHunger: 1000,
+	minLifeSpan: min,
+	feed: 100,
+	initialSize: 200,
+	maxSize: 600,
+	matureIn: min,
+	color: [
+		'red',
+		'yellow',
+		'green',
+		'blue',
+		],
+};
+
+const taskDef = {
+	submitCd: 10 * sec,
+	startEating: 3 * sec,
+	duration: 3 * sec,
+}
 
 interface Task {
 	name: string
 	date: string
 	time: string
+	canSubmitTime: number
+	canSubmit: boolean
+	startFeed: number
+	isFeeding: boolean
+	endFeed: number
+	finishFeeding: boolean
 }
- 
+
+function failTask() {
+	state.pet.love -= petDef.minusLove
+}
+function deletePen1() {
+	state.pet.love -= 2
+}
+function deletePen2() {
+	state.pet.love -= 10
+}
+function succeedTask() {
+	state.pet.love += petDef.plusLove
+}
+function feedPet() {
+	if (state.pet.hunger < petDef.maxHunger) {
+		state.pet.hunger += petDef.feed
+	}
+}
+function setPetColor(color: string) {
+	pet.style.backgroundColor = color
+}
+
+function getTimeStamp(strDateTime: string) {
+	const date = Date.parse(strDateTime)
+	return Math.floor(date/1000)
+}
+
 function displayTasks() {
 	// TODO: Render a list of tasks to tasksListContainer based on 
 	// the list of tasks in state.tasks.
@@ -90,6 +139,12 @@ function addTask() {
 		name: nameInput.value || 'Unnamed',
 		date: dateInput.value || (year + '-' + month + '-' + date),
 		time: timeInput.value || '23:59',
+		canSubmitTime: (Date.now()/1000) + taskDef.submitCd,
+		canSubmit: false,
+		startFeed: (Date.now()/1000) + taskDef.startEating,
+		isFeeding: false,
+		endFeed: (Date.now()/1000) + taskDef.startEating + taskDef.duration,
+		finishFeeding: false,
 	};
 
 	state.tasks.push(newtask);
@@ -97,24 +152,38 @@ function addTask() {
 	displayTasks();
 }
 
+function newTask() {
+	newItemForm.style.display = 'block';
+	
+	cancelNewButton.onclick = ()=>{
+		newItemForm.style.display = 'none';
+	}
+	enterButton.onclick = ()=>{
+		addTask();
+		//feedPet();
+	}
+}
+
 function editTask() {
 	if (state.taskIndex >= 0) {
 		editWindow.style.display = 'block';
 		deleteButton.onclick = ()=> {
-			//tasksList.removeChild(tasksList.children[state.taskIndex]);
-			// Remove selected task from the state.
+			if (state.tasks[state.taskIndex].isFeeding) {
+				deletePen1();
+			} else if (state.tasks[state.taskIndex].finishFeeding) {
+				deletePen2();
+			}
 			state.tasks.splice(state.taskIndex, 1);
-			// Refresh the display
 			displayTasks();
-			//[...tasksList.children].splice(state.taskIndex, 1);
 			editWindow.style.display = 'none';
 		}
 		submitButton.onclick = ()=> {
-			editWindow.style.display = 'none';
-			state.tasks.splice(state.taskIndex, 1);
-			displayTasks();
-			if (state.pet.hunger < state.pet.maxHunger) {
-				state.pet.hunger += state.pet.feed
+			console.log(state.tasks[state.taskIndex].canSubmit);
+			if (state.tasks[state.taskIndex].canSubmit) {
+				state.tasks.splice(state.taskIndex, 1);
+				displayTasks();
+				succeedTask();
+				editWindow.style.display = 'none';
 			}
 		}
 		cancelEditButton.onclick = ()=> {
@@ -123,41 +192,61 @@ function editTask() {
 	}
 }
 
-function failTask() {
-	state.tasks.splice(state.taskIndex, 1)
-	state.pet.love -= state.pet.minusLove
-}
-
-function setPetColor(color: string) {
-	pet.style.backgroundColor = color
-}
-
-function getTimeStamp(strDateTime: string) {
-	const date = Date.parse(strDateTime)
-	return Math.floor(date/1000)
-}
-
 function checkTasks() {
 	for (let i = 0; i < state.tasks.length; i++) {
 		const due = getTimeStamp(state.tasks[i].date + ' ' + state.tasks[i].time)
 		const now = Math.floor(Date.now()/1000)
 		if (due < now) {
-			state.pet.alive = false
+			state.tasks.splice(i, 1)
+			displayTasks();
+			failTask();
+		}
+		if (now > state.tasks[i].canSubmitTime) {
+			state.tasks[i].canSubmit = true;
+		}
+		if (state.tasks[i].isFeeding) {
+			state.pet.hunger += petDef.feed / (taskDef.duration * fps)
+		}
+		if (now > state.tasks[i].endFeed) {
+			state.tasks[i].isFeeding = false;
+			state.tasks[i].finishFeeding = true;
+		} else if (now > state.tasks[i].startFeed) {
+			state.tasks[i].isFeeding = true;
+		}
+	}
+}
+
+function updatePetStatus() {
+	pet.style.height = state.pet.size + 'px'
+	pet.style.width = state.pet.size + 'px'
+	pet.style.marginTop = -state.pet.size / 2 + 'px'
+	hungerMeter.innerHTML = 'fullness:' + ' ' + (state.pet.hunger * 100 / petDef.maxHunger).toFixed(0) + '%'
+	loveMeter.innerHTML = 'love:' + ' ' + state.pet.love
+	//hungerBar.style.width = state.pet.hunger * 100 / petDef.maxHunger + '%'
+}
+
+function petAction() {
+	updatePetStatus();
+
+	if (!state.pet.alive) {
+		setPetColor('black');
+	} else {
+		state.pet.hunger -= petDef.maxHunger / (petDef.minLifeSpan * fps)
+		if (state.pet.hunger <= 0) {
+			state.pet.alive = false;
+		}
+		
+		state.pet.health = Math.floor(state.pet.hunger/(petDef.maxHunger/petDef.maxHealth))
+		setPetColor(petDef.color[state.pet.health])
+		
+		if (state.pet.size < petDef.maxSize) {
+			state.pet.size += (petDef.maxSize - petDef.initialSize) / (petDef.matureIn * fps)
 		}
 	}
 }
 
 bakaButton.onclick = ()=>{
-	newItemForm.style.display = 'block';
-}
-
-cancelNewButton.onclick = ()=>{
-	newItemForm.style.display = 'none';
-}
-
-
-enterButton.onclick = ()=>{
-	addTask();
+	newTask();
 }
 
 tasksList.onclick = (event)=>{
@@ -169,52 +258,7 @@ tasksList.onclick = (event)=>{
 }
 
 function update(): void {
-
-	hungerBar.style.width = state.pet.hunger * 100 / state.pet.maxHunger + '%'
-	pet.style.height = state.pet.size + 'px'
-	pet.style.width = state.pet.size + 'px'
-	pet.style.marginTop = -state.pet.size / 2 + 'px'
-	state.time++
 	checkTasks();
-
-	
-	const sec = state.time/50
-	const min = sec/60
-	const hour = min/60
-	const day = hour/24
-
-	const p = state.pet
-
-
-	if (p.alive === true) {	
-		p.hunger -= p.hungerRate
-		p.health = Math.floor(p.hunger/(p.maxHunger/p.maxHealth))
-		
-		if (p.size < p.maxSize) {
-			p.size += p.growSpeed
-		}
-		setPetColor(p.color[p.health])
-	} else {
-		setPetColor('black')
-	}
-	if (p.hunger === 0) {
-		p.alive = false;
-	}
-	
+	petAction();
 }
-
-
-
-
-
-/*function renderLoop(): void {
-    try {
-        window.requestAnimationFrame(renderLoop);
-        render(mainContext);
-    } catch (e) {
-        console.log(e);
-        debugger;
-    }
-}*/
-//renderLoop();
-setInterval(update, 20);
+setInterval(update, 1000/fps);
