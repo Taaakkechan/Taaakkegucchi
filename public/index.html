@@ -5,7 +5,7 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet"> //-->
     <style>
     body {
-        background: url('gfx/darkstone.png');
+/*        background: url('gfx/darkstone.png');*/
         margin: 0;
         padding: 0;
         overflow: hidden;
@@ -16,11 +16,11 @@
         margin-left: auto;
         margin-right: auto;
         padding-top: 0;
-        width: 800px;
+        width: 1200px;
         min-height: 800px;
         background-color: white;
         background-repeat: repeat;
-        border: 5px solid gold;
+        border: 5px solid black;
         top: 0px;
         -moz-user-select: none;
         -khtml-user-select: none;
@@ -46,11 +46,8 @@
     }
     </style>
     <title>Erai Erai</title>
-    <meta property='og:title' content='Spirit Quest'/>
-    <meta property='og:image' content='https://chrisflash.com/alttptest/preview.png'>
-    <meta property='og:description' content='SNES Zelda Inspired Browser Game'/>
-    <meta property='og:image:width' content='1345' />
-    <meta property='og:image:height' content='1177' />
+    <meta property='og:title' content='Taaakkegucchi'/>
+    <meta property='og:description' content='task mangement Tamagocchi like game'/>
     <meta property='og:type' content='website'/>
 </head>
 <body>
@@ -77,40 +74,67 @@
     </div>
 
 <!-- game -->
-    
+    <div id="menuBarContainer"> 
+        <div id="menuBar">
+            <div id="homeButton"> HOME </div>
+            <div id="tasksButton" class="menuItem"> tasks </div>
+            <div id="goalsButton"  class="menuItem"> goals </div>
+            <div id="statsButton"  class="menuItem"> stats </div>
+            <div id="settingsButton"  class="menuItem"> settings </div>
+        </div>
+    </div>
     <div class="js-gameContent gameContent">
-        <div style="text-align: right;">
-            <button id="baka">
-                baka
-            </button>
-        </div>
-        <div id="petContainer">
-             <div id="pet"></div>
-        </div>
-        
-        <div id="tasksList"></div>
-
-        <li id="newItemForm"> 
-            <div class="inputs">Due: <input id="dateInput" style="font-size: 25px;" type="date"/></div> 
-            <div class="inputs"><input id="timeInput" style="font-size: 25px;" type="time"/></div> 
-            <div class="inputs">Task: <input id="nameInput" style="font-size: 25px;"/> </div>
-            <div> 
-                <button id="enter" class="buttons"> Enter </button> 
-                <button id="cancelNew" class="buttons"> cancel </button>
+        <div id="defaultPage">
+            <div id="petContainer">
+                 <div id="pet"></div>
             </div>
-        </li>
-        
-        <div id="editWindow">
-            <button id="delete" class="edit">delete</button>
-            <button id="submit" class="edit">submit</button>
-            <button id="cancelEdit" class="edit">cancel</button>
+
+            <div id="stats">
+                <div id="hungerMeter" class="stat"> fullness: 100% </div>
+                <div id="loveMeter" class="stat"> love: 0 </div>
+            </div>
+           
+            <div id="hungerBarBack">
+                <div id="hungerBar"></div>
+            </div>
+           
         </div>
-        <div id="hungerBarBack">
-            <div id="hungerBar"></div>
+        <div id="tasksPage" style="font-size: 30px;">
+            this is the tasks page
+                <button id="newTask">
+                    creat task
+                </button>
+            <div id="tasksList"></div>
+
+            <div id="newItemForm"> 
+                <div class="inputs">Due: <input id="dateInput" style="font-size: 25px;" type="date"/></div> 
+                <div class="inputs"><input id="timeInput" style="font-size: 25px;" type="time"/></div> 
+                <div class="inputs">Task: <input id="nameInput" style="font-size: 25px;"/> </div>
+                <div> 
+                    <button id="enter" class="buttons"> Enter </button> 
+                    <button id="cancelNew" class="buttons"> cancel </button>
+                </div>
+            </div>
+            
+            <div id="editWindow">
+                <button id="delete" class="edit">delete</button>
+                <button id="submit" class="edit">submit</button>
+                <button id="cancelEdit" class="edit">cancel</button>
+            </div>
+
         </div>
-        <div id="stats">
-            <div id="hungerMeter" class="stat"> fullness: 100% </div>
-            <div id="loveMeter" class="stat"> love: 0 </div>
+        <div id="goalsPage" style="font-size: 30px;">
+            this is the goal page
+        </div>
+        <div id="statsPage" style="font-size: 30px;">
+            this is the stats page
+            <!-- <div id="stats">
+                <div id="hungerMeter" class="stat"> fullness: 100% </div>
+                <div id="loveMeter" class="stat"> love: 0 </div>
+            </div> -->
+        </div>
+        <div id="settingsPage" style="font-size: 30px;">
+            this is the settings page
         </div>
     </div>
 </div>

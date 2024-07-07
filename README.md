@@ -1,6 +1,3 @@
-# thrive
-Hardcore bullet hell game with RPG elements.
-
 ### Steps To Run the Project Locally
 1. clone repository
 1. In the command line:

@@ -1,16 +1,13 @@
 Game 
-    add cooldown so the game doesn't break
-
     add kill(reset) button
 
     add game over/ game start
 
-    make deveolopement mode and test mode
-    easier to switch between the two and tweek the time
-
     maybe change how fast it starts eating depending on how hungry it is.
 
     deal with over 100% fullness
+
+    add repeating tasks
 
 Visuals
     instead of cancel button make X on top right of any forms
@@ -22,4 +19,4 @@ Visuals
 Code
     make better class names? 
 
-    find way to organize code
+    find way to better organize code
