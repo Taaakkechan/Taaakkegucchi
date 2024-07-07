@@ -1,3 +1,6 @@
+### Taaakkegucchi
+This is a tamagocchi like game but with task management properties
+
 ### Steps To Run the Project Locally
 1. clone repository
 1. In the command line:
