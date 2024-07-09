@@ -32,7 +32,7 @@
         font-size: 50px;
         color: white;
     }
-    .taskButton:not(:last-child) {
+    .listItemButton:not(:last-child) {
         margin-bottom: 10px;
     }
     /* https://stackoverflow.com/questions/7615009/disable-interpolation-when-scaling-a-canvas */
@@ -101,31 +101,50 @@
         </div>
         <div id="tasksPage" style="font-size: 30px;">
             this is the tasks page
-                <button id="newTask">
-                    creat task
-                </button>
+            <button id="newTask" style="font-size: 30px;">
+                creat task
+            </button>
             <div id="tasksList"></div>
 
-            <div id="newItemForm"> 
-                <div class="inputs">Due: <input id="dateInput" style="font-size: 25px;" type="date"/></div> 
-                <div class="inputs"><input id="timeInput" style="font-size: 25px;" type="time"/></div> 
-                <div class="inputs">Task: <input id="nameInput" style="font-size: 25px;"/> </div>
+            <div id="newTaskForm" class="newItemForm"> 
+                <div class="inputs">Due: <input id="taskDateInput" style="font-size: 25px;" type="date"/></div> 
+                <div class="inputs"><input id="taskTimeInput" style="font-size: 25px;" type="time"/></div> 
+                <div class="inputs">Task: <input id="taskNameInput" style="font-size: 25px;"/> </div>
                 <button id="repeat" class="buttons"> repeat? </button>
                 <div> 
-                    <button id="enter" class="buttons"> Enter </button> 
-                    <button id="cancelNew" class="buttons"> cancel </button>
+                    <button id="enterTask" class="buttons"> Enter </button> 
+                    <button id="cancelNewTask" class="buttons"> cancel </button>
                 </div>
             </div>
             
-            <div id="editWindow">
-                <button id="delete" class="edit">delete</button>
-                <button id="submit" class="edit">submit</button>
-                <button id="cancelEdit" class="edit">cancel</button>
+            <div id="editTaskWindow" class="editWindow">
+                <button id="deleteTask" class="edit">delete</button>
+                <button id="submitTask" class="edit">submit</button>
+                <button id="cancelEditTask" class="edit">cancel</button>
             </div>
 
         </div>
         <div id="goalsPage" style="font-size: 30px;">
             this is the goal page
+            <button id="newGoal" style="font-size: 30px;">
+                creat goal
+            </button>
+            <div id="goalsList"></div>
+
+            <div id="newGoalForm" class="newItemForm"> 
+                <div class="inputs">Due: <input id="goalDateInput" style="font-size: 25px;" type="date"/></div> 
+                <div class="inputs"><input id="goalTimeInput" style="font-size: 25px;" type="time"/></div> 
+                <div class="inputs">Goal: <input id="goalNameInput" style="font-size: 25px;"/> </div>
+                <div> 
+                    <button id="enterGoal" class="buttons"> Enter </button> 
+                    <button id="cancelNewGoal" class="buttons"> cancel </button>
+                </div>
+            </div>
+            <div id="editGoalWindow" class="editWindow">
+                <button id="deleteGoal" class="edit">delete</button>
+                <button id="submitGoal" class="edit">submit</button>
+                <button id="cancelEditGoal" class="edit">cancel</button>
+            </div>
         </div>
         <div id="statsPage" style="font-size: 30px;">
             this is the stats page

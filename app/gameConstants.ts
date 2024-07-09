@@ -1,5 +1,3 @@
-
-
 const sec = 1;
 const min = sec * 60;
 const hour = min * 60;
@@ -28,4 +26,8 @@ export const taskDef = {
 	startEating: 3 * sec,
 	duration: 3 * sec,
 	repeatCd: 10 * sec,
+};
+
+export const goalDef = {
+	submitCd: 0 ,//10 * sec,
 };

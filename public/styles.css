@@ -1,7 +1,3 @@
-#newTask {
-    font-size: 25px;
-}
-
 .buttons {
     font-size: 25px;
     margin-top: 20px;
@@ -12,7 +8,7 @@
     padding-right: 40px;
 }
 
-#newItemForm {
+.newItemForm {
     display: none;
     text-align: center;
     position: fixed;
@@ -36,7 +32,16 @@
     width: 300px;
 }
 
-#editWindow {
+#goalsList {
+    position: absolute;
+    right: 10;
+    top: 50;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.editWindow {
     display: none;
     text-align: center;
     position: fixed;
@@ -51,7 +56,7 @@
     top: 300px;
 }
 
-#hungerBarBack {
+/*#hungerBarBack {
     height: 50px;
     background-color: #404040;
     position: absolute;
@@ -64,7 +69,7 @@
     height: 100%;
     width: 100%;
     background-color: #FF0000;
-}
+}*/
 
 #stats {
 /*    position: absolute;*/

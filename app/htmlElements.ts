@@ -15,36 +15,47 @@ function getInput(id: string): HTMLInputElement {
 	return requireElementById(id) as HTMLInputElement;
 }
 
-export const newTaskButton = getButton('newTask');
-export const enterButton = getButton('enter');
-export const deleteButton = getButton('delete');
-export const submitButton = getButton('submit');
-export const cancelEditButton = getButton('cancelEdit');
-export const cancelNewButton = getButton('cancelNew');
-export const repeatButton = getButton('repeat');
+ const newTaskButton = getButton('newTask');
+ const enterTaskButton = getButton('enterTask');
+ const deleteTaskButton = getButton('deleteTask');
+ const submitTaskButton = getButton('submitTask');
+ const cancelEditTaskButton = getButton('cancelEditTask');
+ const cancelNewTaskButton = getButton('cancelNewTask');
+ const repeatButton = getButton('repeat');
+ const newGoalButton = getButton('newGoal');
+ const enterGoalButton = getButton('enterGoal');
+ const deleteGoalButton = getButton('deleteGoal');
+ const submitGoalButton = getButton('submitGoal');
+ const cancelEditGoalButton = getButton('cancelEditGoal');
+ const cancelNewGoalButton = getButton('cancelNewGoal');
 
-export const dateInput = getInput('dateInput');
-export const timeInput = getInput('timeInput');
-export const nameInput = getInput('nameInput');
-export const tasksListContainer = getInput('tasksList');
+ const taskDateInput = getInput('taskDateInput');
+ const taskTimeInput = getInput('taskTimeInput');
+ const taskNameInput = getInput('taskNameInput');
+ const goalDateInput = getInput('goalDateInput');
+ const goalTimeInput = getInput('goalTimeInput');
+ const goalNameInput = getInput('goalNameInput');
 
-export const newItemForm = getDiv('newItemForm');
-export const tasksList = getDiv('tasksList');
-export const editWindow = getDiv('editWindow');
-export const hungerBar = getDiv('hungerBar');
-export const pet = getDiv('pet');
-export const hungerMeter = getDiv('hungerMeter');
-export const loveMeter = getDiv('loveMeter');
-export const homeButton = getDiv('homeButton');
-export const tasksButton = getDiv('tasksButton');
-export const goalsButton = getDiv('goalsButton');
-export const statsButton = getDiv('statsButton');
-export const settingsButton = getDiv('settingsButton');
-export const defaultPage = getDiv('defaultPage');
-export const tasksPage = getDiv('tasksPage');
-export const goalsPage = getDiv('goalsPage');
-export const statsPage = getDiv('statsPage');
-export const settingsPage = getDiv('settingsPage');
+ const newTaskForm = getDiv('newTaskForm');
+ const tasksList = getDiv('tasksList');
+ const editTaskWindow = getDiv('editTaskWindow');
+ const newGoalForm = getDiv('newGoalForm');
+ const goalsList = getDiv('goalsList');
+ const editGoalWindow = getDiv('editGoalWindow');
+ //const hungerBar = getDiv('hungerBar');
+ const pet = getDiv('pet');
+ const hungerMeter = getDiv('hungerMeter');
+ const loveMeter = getDiv('loveMeter');
+ const homeButton = getDiv('homeButton');
+ const tasksButton = getDiv('tasksButton');
+ const goalsButton = getDiv('goalsButton');
+ const statsButton = getDiv('statsButton');
+ const settingsButton = getDiv('settingsButton');
+ const defaultPage = getDiv('defaultPage');
+ const tasksPage = getDiv('tasksPage');
+ const goalsPage = getDiv('goalsPage');
+ const statsPage = getDiv('statsPage');
+ const settingsPage = getDiv('settingsPage');
 
 export const pages = [
 	defaultPage,
@@ -61,18 +72,27 @@ export const buttons = {
 	stats: statsButton,
 	settings: settingsButton,
 	newTask: newTaskButton,
-	enter: enterButton,
-	delete: deleteButton,
-	submit: submitButton,
-	cancelNew: cancelNewButton,
-	cancelEdit: cancelEditButton,
+	enterTask: enterTaskButton,
+	deleteTask: deleteTaskButton,
+	submitTask: submitTaskButton,
+	cancelNewTask: cancelNewTaskButton,
+	cancelEditTask: cancelEditTaskButton,
 	repeat: repeatButton,
+	newGoal: newGoalButton,
+	enterGoal: enterGoalButton,
+	deleteGoal: deleteGoalButton,
+	submitGoal: submitGoalButton,
+	cancelNewGoal: cancelNewGoalButton,
+	cancelEditGoal: cancelEditGoalButton,
 };
 
 export const divs = {
-	newItemForm: newItemForm,
+	newTaskForm: newTaskForm,
 	tasksList: tasksList,
-	editWindow: editWindow,
+	editTaskWindow: editTaskWindow,
+	newGoalForm: newGoalForm,
+	goalsList: goalsList,
+	editGoalWindow: editGoalWindow,
 	pet: pet,
 	hungerMeter: hungerMeter,
 	loveMeter: loveMeter,
@@ -80,7 +100,10 @@ export const divs = {
 }
 
 export const inputs = {
-	date: dateInput,
-	time: timeInput,
-	name: nameInput,
+	taskDate: taskDateInput,
+	taskTime: taskTimeInput,
+	taskName: taskNameInput,
+	goalDate: goalDateInput,
+	goalTime: goalTimeInput,
+	goalName: goalNameInput,
 }
