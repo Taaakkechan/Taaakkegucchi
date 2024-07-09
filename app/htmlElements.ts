@@ -21,6 +21,7 @@ export const deleteButton = getButton('delete');
 export const submitButton = getButton('submit');
 export const cancelEditButton = getButton('cancelEdit');
 export const cancelNewButton = getButton('cancelNew');
+export const repeatButton = getButton('repeat');
 
 export const dateInput = getInput('dateInput');
 export const timeInput = getInput('timeInput');
@@ -65,7 +66,7 @@ export const buttons = {
 	submit: submitButton,
 	cancelNew: cancelNewButton,
 	cancelEdit: cancelEditButton,
-
+	repeat: repeatButton,
 };
 
 export const divs = {

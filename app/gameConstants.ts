@@ -1,8 +1,10 @@
+
+
 const sec = 1;
 const min = sec * 60;
 const hour = min * 60;
 const day = hour * 24;
-
+export const fps = 50;
 export const petDef = {
 	maxHealth: 4,
 	minusLove: 10,
@@ -22,7 +24,8 @@ export const petDef = {
 };
 
 export const taskDef = {
-	submitCd: 10 * sec,
+	submitCd: 0 ,//10 * sec,
 	startEating: 3 * sec,
 	duration: 3 * sec,
+	repeatCd: 10 * sec,
 };
