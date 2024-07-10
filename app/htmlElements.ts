@@ -15,42 +15,6 @@ function getInput(id: string): HTMLInputElement {
 	return requireElementById(id) as HTMLInputElement;
 }
 
- const newTaskButton = getButton('newTask');
- const enterTaskButton = getButton('enterTask');
- const deleteTaskButton = getButton('deleteTask');
- const submitTaskButton = getButton('submitTask');
- const cancelEditTaskButton = getButton('cancelEditTask');
- const cancelNewTaskButton = getButton('cancelNewTask');
- const repeatButton = getButton('repeat');
- const newGoalButton = getButton('newGoal');
- const enterGoalButton = getButton('enterGoal');
- const deleteGoalButton = getButton('deleteGoal');
- const submitGoalButton = getButton('submitGoal');
- const cancelEditGoalButton = getButton('cancelEditGoal');
- const cancelNewGoalButton = getButton('cancelNewGoal');
-
- const taskDateInput = getInput('taskDateInput');
- const taskTimeInput = getInput('taskTimeInput');
- const taskNameInput = getInput('taskNameInput');
- const goalDateInput = getInput('goalDateInput');
- const goalTimeInput = getInput('goalTimeInput');
- const goalNameInput = getInput('goalNameInput');
-
- const newTaskForm = getDiv('newTaskForm');
- const tasksList = getDiv('tasksList');
- const editTaskWindow = getDiv('editTaskWindow');
- const newGoalForm = getDiv('newGoalForm');
- const goalsList = getDiv('goalsList');
- const editGoalWindow = getDiv('editGoalWindow');
- //const hungerBar = getDiv('hungerBar');
- const pet = getDiv('pet');
- const hungerMeter = getDiv('hungerMeter');
- const loveMeter = getDiv('loveMeter');
- const homeButton = getDiv('homeButton');
- const tasksButton = getDiv('tasksButton');
- const goalsButton = getDiv('goalsButton');
- const statsButton = getDiv('statsButton');
- const settingsButton = getDiv('settingsButton');
  const defaultPage = getDiv('defaultPage');
  const tasksPage = getDiv('tasksPage');
  const goalsPage = getDiv('goalsPage');
@@ -66,44 +30,44 @@ export const pages = [
 ];
 
 export const buttons = {
-	home: homeButton,
-	tasks: tasksButton,
-	goals: goalsButton,
-	stats: statsButton,
-	settings: settingsButton,
-	newTask: newTaskButton,
-	enterTask: enterTaskButton,
-	deleteTask: deleteTaskButton,
-	submitTask: submitTaskButton,
-	cancelNewTask: cancelNewTaskButton,
-	cancelEditTask: cancelEditTaskButton,
-	repeat: repeatButton,
-	newGoal: newGoalButton,
-	enterGoal: enterGoalButton,
-	deleteGoal: deleteGoalButton,
-	submitGoal: submitGoalButton,
-	cancelNewGoal: cancelNewGoalButton,
-	cancelEditGoal: cancelEditGoalButton,
+	home: getDiv('homeButton'),
+	tasks: getDiv('tasksButton'),
+	goals: getDiv('goalsButton'),
+	stats: getDiv('statsButton'),
+	settings: getDiv('settingsButton'),
+	newTask: getButton('newTask'),
+	enterTask: getButton('enterTask'),
+	deleteTask: getButton('deleteTask'),
+	submitTask: getButton('submitTask'),
+	cancelNewTask: getButton('cancelNewTask'),
+	cancelEditTask: getButton('cancelEditTask'),
+	repeat: getButton('repeat'),
+	newGoal: getButton('newGoal'),
+	enterGoal: getButton('enterGoal'),
+	deleteGoal: getButton('deleteGoal'),
+	submitGoal: getButton('submitGoal'),
+	cancelNewGoal: getButton('cancelNewGoal'),
+	cancelEditGoal: getButton('cancelEditGoal'),
 };
 
 export const divs = {
-	newTaskForm: newTaskForm,
-	tasksList: tasksList,
-	editTaskWindow: editTaskWindow,
-	newGoalForm: newGoalForm,
-	goalsList: goalsList,
-	editGoalWindow: editGoalWindow,
-	pet: pet,
-	hungerMeter: hungerMeter,
-	loveMeter: loveMeter,
-
+	newTaskForm: getDiv('newTaskForm'),
+	tasksList: getDiv('tasksList'),
+	editTaskWindow: getDiv('editTaskWindow'),
+	newGoalForm: getDiv('newGoalForm'),
+	goalsList: getDiv('goalsList'),
+	editGoalWindow: getDiv('editGoalWindow'),
+	pet: getDiv('pet'),
+	hungerMeter: getDiv('hungerMeter'),
+	loveMeter: getDiv('loveMeter'),
+	statsContainer: getDiv('statsContainer')
 }
 
 export const inputs = {
-	taskDate: taskDateInput,
-	taskTime: taskTimeInput,
-	taskName: taskNameInput,
-	goalDate: goalDateInput,
-	goalTime: goalTimeInput,
-	goalName: goalNameInput,
+	taskDate: getInput('taskDateInput'),
+	taskTime: getInput('taskTimeInput'),
+	taskName: getInput('taskNameInput'),
+	goalDate: getInput('goalDateInput'),
+	goalTime: getInput('goalTimeInput'),
+	goalName: getInput('goalNameInput'),
 }

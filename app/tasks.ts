@@ -5,8 +5,14 @@ import { petDef, taskDef, fps} from 'app/gameConstants';
 
 //task results
 
+function badEvent() {
+	const dice = Math.floor(Math.random() * 100) + 1
+	if (dice > state.pet.vit) {
+		state.pet.alive = false
+	}
+}
 function failTask() {
-	state.pet.love -= petDef.minusLove
+	badEvent();
 }
 function deletePen1() {
 	state.pet.love -= 2
@@ -15,7 +21,7 @@ function deletePen2() {
 	state.pet.love -= 10
 }
 function succeedTask() {
-	state.pet.love += petDef.plusLove
+	state.pet.xp += taskDef.xp
 }
 function feedPet() {
 	state.pet.hunger += petDef.feed / (taskDef.duration * fps)
@@ -72,7 +78,6 @@ function addTask() {
 	}
 	state.tasks.push(newtask);
 	displayTasks();
-	console.log(newtask.repeats);
 }
 
 export function newTask() {

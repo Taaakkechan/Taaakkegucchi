@@ -26,6 +26,7 @@ export const taskDef = {
 	startEating: 3 * sec,
 	duration: 3 * sec,
 	repeatCd: 10 * sec,
+	xp: 100,
 };
 
 export const goalDef = {

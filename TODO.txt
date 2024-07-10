@@ -7,16 +7,32 @@ Game
 
     deal with over 100% fullness
 
-    add repeating tasks
+    make it so the state doesnt refresh when refresh the browser
+
+    add subGoals to goals
+
+    add repeat weekly option after setting up for the week (like every week Mon and Tues) 
+
+    set and tweek the reward and penalties for tasks and goals 
+
+    add task tags and log.
+
 
 Visuals
-    instead of cancel button make X on top right of any forms
+    instead of cancel button make X on top right of all forms
 
     make the date and time side by side in the newItems form
 
     make graphics and implement them
 
+    just make a better userinterface especially for tasks
+
 Code
     make better class names? 
 
     find way to better organize code
+
+What I can do with this app?
+
+    set name date and time for tasks and choose if I want to repeat for a set period. submit them
+    set same things for goals but no repeat and submit them 
