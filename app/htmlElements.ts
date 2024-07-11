@@ -39,15 +39,15 @@ export const buttons = {
 	enterTask: getButton('enterTask'),
 	deleteTask: getButton('deleteTask'),
 	submitTask: getButton('submitTask'),
-	cancelNewTask: getButton('cancelNewTask'),
-	cancelEditTask: getButton('cancelEditTask'),
+	cancelNewTask: getDiv('cancelNewTask'),
+	cancelEditTask: getDiv('cancelEditTask'),
 	repeat: getButton('repeat'),
 	newGoal: getButton('newGoal'),
 	enterGoal: getButton('enterGoal'),
 	deleteGoal: getButton('deleteGoal'),
 	submitGoal: getButton('submitGoal'),
-	cancelNewGoal: getButton('cancelNewGoal'),
-	cancelEditGoal: getButton('cancelEditGoal'),
+	cancelNewGoal: getDiv('cancelNewGoal'),
+	cancelEditGoal: getDiv('cancelEditGoal'),
 };
 
 export const divs = {
@@ -60,7 +60,8 @@ export const divs = {
 	pet: getDiv('pet'),
 	hungerMeter: getDiv('hungerMeter'),
 	loveMeter: getDiv('loveMeter'),
-	statsContainer: getDiv('statsContainer')
+	statsContainer: getDiv('statsContainer'),
+	menuBar: getDiv('menuBar'),
 }
 
 export const inputs = {

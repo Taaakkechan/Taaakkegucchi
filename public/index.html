@@ -76,11 +76,11 @@
 <!-- game -->
     <div id="menuBarContainer"> 
         <div id="menuBar">
-            <div id="homeButton"> HOME </div>
-            <div id="tasksButton" class="menuItem"> tasks </div>
-            <div id="goalsButton"  class="menuItem"> goals </div>
-            <div id="statsButton"  class="menuItem"> stats </div>
-            <div id="settingsButton"  class="menuItem"> settings </div>
+            <div id="homeButton" class="menuItem"> HOME </div>
+            <div id="tasksButton" class="menuItem"> Tasks </div>
+            <div id="goalsButton"  class="menuItem"> Goals </div>
+            <div id="statsButton"  class="menuItem"> Stats </div>
+            <div id="settingsButton"  class="menuItem"> Settings </div>
         </div>
     </div>
     <div class="js-gameContent gameContent">
@@ -113,14 +113,14 @@
                 <button id="repeat" class="buttons"> repeat? </button>
                 <div> 
                     <button id="enterTask" class="buttons"> Enter </button> 
-                    <button id="cancelNewTask" class="buttons"> cancel </button>
+                    <div id="cancelNewTask" class="cancel">X</div>
                 </div>
             </div>
             
             <div id="editTaskWindow" class="editWindow">
                 <button id="deleteTask" class="edit">delete</button>
                 <button id="submitTask" class="edit">submit</button>
-                <button id="cancelEditTask" class="edit">cancel</button>
+                <div id="cancelEditTask" class="cancel">X</div>
             </div>
 
         </div>
@@ -137,13 +137,13 @@
                 <div class="inputs">Goal: <input id="goalNameInput" style="font-size: 25px;"/> </div>
                 <div> 
                     <button id="enterGoal" class="buttons"> Enter </button> 
-                    <button id="cancelNewGoal" class="buttons"> cancel </button>
+                    <div id="cancelNewGoal" class="cancel">X</div>
                 </div>
             </div>
             <div id="editGoalWindow" class="editWindow">
                 <button id="deleteGoal" class="edit">delete</button>
                 <button id="submitGoal" class="edit">submit</button>
-                <button id="cancelEditGoal" class="edit">cancel</button>
+                <div id="cancelEditGoal" class="cancel">X</div>
             </div>
         </div>
         <div id="statsPage" style="font-size: 30px;">

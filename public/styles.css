@@ -8,6 +8,13 @@
     padding-right: 40px;
 }
 
+.cancel {
+    font-size: 30px;
+    font-family: sans-serif;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
 .newItemForm {
     display: none;
     text-align: center;
@@ -133,23 +140,33 @@
 }
 #menuBar {
     height: 800px;
+    background-color: black;
     border-right: 3px solid black;
 }
 #homeButton {
     font-size: 50px;
+    font-family: sans-serif;
+    color: white;
     padding-top: 30px;
     padding-bottom: 30px;
+    border-bottom: 3px solid white;
     text-align: center;
 
 }
+
 .menuItem {
-    font-size: 50px;]
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-bottom: 2px solid black;
+    font-size: 50px;
+    font-family: sans-serif;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 2px solid white;
     text-align: center;
+}
+.menuItem:hover {
+    background-color: gray !important;
 }
 #defaultPage {
     display: block;

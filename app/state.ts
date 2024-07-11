@@ -4,6 +4,7 @@ export const state = {
 	tasks: [] as Task[],
 	goals: [] as Goal[],
 	repeatPressed: false,
+	menuIndex: 0,
 	taskIndex: 0,
 	goalIndex: 0,
 	pet: {
