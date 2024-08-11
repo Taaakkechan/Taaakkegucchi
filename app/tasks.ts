@@ -29,7 +29,7 @@ function feedPet() {
 
 //task logic
 
-function displayTasks() {
+export function displayTasks() {
 	// TODO: Render a list of tasks to tasksListContainer based on 
 	// the list of tasks in state.tasks.
 	let listHTML = ''

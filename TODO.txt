@@ -11,12 +11,13 @@ Game
 
     add subGoals to goals
 
-    add repeat weekly option after setting up for the week (like every week Mon and Tues) 
+    add repeat weekly option after setting up for the week (like every week Mon and Tues)
  
     set and tweek the reward and penalties for tasks and goals 
 
     add task tags and logs.
 
+    add love logic to pet.
 
 Visuals
     instead of cancel button make X on top right of all forms

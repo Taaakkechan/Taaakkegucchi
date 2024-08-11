@@ -14,7 +14,7 @@ function succeedGoal() {
 
 //task logic
 
-function displayGoals() {
+export function displayGoals() {
 	// TODO: Render a list of tasks to tasksListContainer based on 
 	// the list of tasks in state.tasks.
 	let listHTML = ''

@@ -62,6 +62,7 @@ export const divs = {
 	loveMeter: getDiv('loveMeter'),
 	statsContainer: getDiv('statsContainer'),
 	menuBar: getDiv('menuBar'),
+	title: getDiv('title')
 }
 
 export const inputs = {

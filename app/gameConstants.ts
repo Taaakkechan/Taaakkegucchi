@@ -8,7 +8,7 @@ export const petDef = {
 	minusLove: 10,
 	plusLove: 2,
 	maxHunger: 1000,
-	minLifeSpan: day / (24 * 60),
+	minLifeSpan: day / (24 * 60 * 6),
 	feed: 100,
 	initialSize: 200,
 	maxSize: 600,

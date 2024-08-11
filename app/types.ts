@@ -20,3 +20,28 @@ export interface Goal {
 	canSubmitTime: number
 	canSubmit: boolean
 }
+
+export interface Pet {
+	love: number
+	health: number 
+	level: number 
+	xp: number 
+	reqXp: number 
+	vit: number 
+	str: number 
+	int: number 
+	hunger: number 
+	size: number 
+	alive: boolean
+}
+
+export interface State {
+	start: boolean
+	tasks: Task[]
+	goals: Goal[]
+	repeatPressed: boolean
+	menuIndex: number
+	taskIndex: number
+	goalIndex: number
+	pet: Pet
+};
