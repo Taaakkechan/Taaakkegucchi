@@ -3,7 +3,7 @@ import {pages, buttons, divs} from 'app/htmlElements';
 import {petAction} from 'app/pet';
 import {checkTasks, editTask, newTask, displayTasks} from 'app/tasks';
 import {checkGoals, editGoal, newGoal, displayGoals} from 'app/goal';
-import {state, initState} from 'app/state';
+import {state, loadState, saveState, clearState} from 'app/state';
 
 
 function hidePage(page: HTMLDivElement) {
@@ -56,19 +56,17 @@ function goalPageActions() {
 		editGoal();
 	}
 }
-
+function refresh() {
+	displayTasks();
+	displayGoals();
+}
 function gameStart() {
 	divs.title.style.display = 'none'
 	state.start = true
 }
 
-function resetGame() {
+function gameOver() {
 	divs.title.style.display = 'block'
-	initState();
-	menuButtonSelected(buttons.home);
-	displayPage(pages[0]);
-	displayTasks();
-	displayGoals();
 }
 
 divs.title.onclick = ()=>{
@@ -96,14 +94,19 @@ buttons.settings.onclick = ()=>{
 	menuButtonSelected(buttons.settings)
 	displayPage(pages[4]);
 }
-
+loadState();
+refresh();
 function update(): void {
 	if (state.start) {
 		checkTasks();
 		checkGoals();
 		petAction();
+		if (Date.now()/1000 % 1 === 0) {
+			saveState();
+		}
 		if (!state.pet.alive) {
-			resetGame();
+			gameOver();
+
 		}
 	}
 }

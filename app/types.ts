@@ -44,4 +44,5 @@ export interface State {
 	taskIndex: number
 	goalIndex: number
 	pet: Pet
+	time: number
 };

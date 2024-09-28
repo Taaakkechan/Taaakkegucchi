@@ -54,12 +54,25 @@ export function initialState() {
 		taskIndex: 0,
 		goalIndex: 0,
 		pet: initialPetState(),
+		time: Math.floor(Date.now()/1000),
 	};
 	return state;
 }
-
-export let state = initialState();
-
-export function initState() {
-	state = initialState();
+ 
+export function saveState() {
+	window.localStorage.clear();
+	state.time = Math.floor(Date.now()/1000);
+	window.localStorage.setItem('gameState', JSON.stringify(state));
 }
+export function clearState() {
+	window.localStorage.clear();
+}
+export function loadState() {
+	const importedSaveData = window.localStorage.getItem('gameState');
+	if (importedSaveData) {
+		state = JSON.parse(importedSaveData);
+	} else {
+		state = initialState()
+	}
+}
+export let state = initialState();
