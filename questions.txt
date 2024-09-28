@@ -1,1 +1,3 @@
 - why can't I use let for the save function with setting time 
+
+- doublechecking if this is a copy
