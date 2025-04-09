@@ -36,7 +36,7 @@ export interface Pet {
 }
 
 export interface State {
-	start: boolean
+	//start: boolean
 	tasks: Task[]
 	goals: Goal[]
 	repeatPressed: boolean

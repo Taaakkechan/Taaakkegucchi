@@ -26,6 +26,7 @@ import {State, Pet} from 'app/types';
 // 		alive: true,
 // 	}
 // };
+export let state = {} as State;
 
 function initialPetState() {
 	const pet: Pet = {
@@ -46,7 +47,7 @@ function initialPetState() {
 
 export function initialState() {
 	const state: State = {
-		start: false,
+		//start: false,
 		tasks: [],
 		goals: [],
 		repeatPressed: false,
@@ -58,8 +59,14 @@ export function initialState() {
 	return state;
 }
 
-export let state = initialState();
+export function setState(gameState: State) {
+	state = gameState;
+}
 
-export function initState() {
-	state = initialState();
+export function clearState() {
+	localStorage.clear();
+}
+export function saveState(state: State) {
+	localStorage.clear();
+	localStorage.setItem("savedState", JSON.stringify(state));	
 }

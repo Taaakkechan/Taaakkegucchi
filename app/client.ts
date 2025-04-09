@@ -3,7 +3,7 @@ import {pages, buttons, divs} from 'app/htmlElements';
 import {petAction} from 'app/pet';
 import {checkTasks, editTask, newTask, displayTasks} from 'app/tasks';
 import {checkGoals, editGoal, newGoal, displayGoals} from 'app/goal';
-import {state, initState} from 'app/state';
+import {state, setState, saveState, initialState, clearState} from 'app/state';
 
 
 function hidePage(page: HTMLDivElement) {
@@ -57,23 +57,23 @@ function goalPageActions() {
 	}
 }
 
-function gameStart() {
-	divs.title.style.display = 'none'
-	state.start = true
-}
+// function gameStart() {
+// 	divs.title.style.display = 'none'
+// 	state.start = true
+// }
 
 function resetGame() {
-	divs.title.style.display = 'block'
-	initState();
+	//divs.title.style.display = 'block'
+	clearState();
 	menuButtonSelected(buttons.home);
 	displayPage(pages[0]);
 	displayTasks();
 	displayGoals();
 }
 
-divs.title.onclick = ()=>{
-	gameStart();
-}
+// divs.title.onclick = ()=>{
+// 	gameStart();
+// }
 buttons.home.onclick = ()=>{
 	menuButtonSelected(buttons.home);
 	displayPage(pages[0]);
@@ -96,15 +96,23 @@ buttons.settings.onclick = ()=>{
 	menuButtonSelected(buttons.settings)
 	displayPage(pages[4]);
 }
+const jsonString = localStorage.getItem("savedState");
+if (jsonString) {
+	setState(JSON.parse(jsonString));
+	console.log("state initiated");
+} else {
+	setState(initialState());
+	console.log("state initiated");
+}
 
 function update(): void {
-	if (state.start) {
-		checkTasks();
-		checkGoals();
-		petAction();
-		if (!state.pet.alive) {
-			resetGame();
-		}
+	checkTasks();
+	checkGoals();
+	petAction();
+	saveState(state);
+	if (!state.pet.alive) {
+		resetGame();
 	}
+
 }
 setInterval(update, 1000/fps);

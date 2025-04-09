@@ -7,7 +7,7 @@ Game
 
     deal with over 100% fullness
 
-    make it so the state doesnt refresh when refresh the browser
+    !!make it so the state doesnt refresh when refresh the browser!!
 
     add subGoals to goals
 

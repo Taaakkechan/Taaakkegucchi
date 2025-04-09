@@ -19,7 +19,11 @@ function updatePetStatus() {
 	divs.pet.style.height = state.pet.size + 'px'
 	divs.pet.style.width = state.pet.size + 'px'
 	divs.pet.style.marginTop = -state.pet.size / 2 + 'px'
-	const stats = '<div class="stat">' + 'level:' + ' ' + state.pet.level + '</div>' + '<div class="stat">' + 'xp:' + ' ' + state.pet.xp + '/' + state.pet.reqXp + '</div>' + '<div class="stat">' + 'vit:' + ' ' + state.pet.vit + '</div>' + '<div class="stat">' + 'str:' + ' ' + state.pet.str + '</div>' + '<div class="stat">' + 'int:' + ' ' + state.pet.int + '</div>'
+	const stats = '<div class="stat">' + 'level:' + ' ' + state.pet.level + '</div>' + 
+					'<div class="stat">' + 'xp:' + ' ' + state.pet.xp + '/' + state.pet.reqXp + '</div>' + 
+					'<div class="stat">' + 'vit:' + ' ' + state.pet.vit + '</div>' + 
+					'<div class="stat">' + 'str:' + ' ' + state.pet.str + '</div>' + 
+					'<div class="stat">' + 'int:' + ' ' + state.pet.int + '</div>'
 	divs.statsContainer.innerHTML = stats
 	divs.hungerMeter.innerHTML = 'fullness:' + ' ' + (state.pet.hunger * 100 / petDef.maxHunger).toFixed(0) + '%'
 	divs.loveMeter.innerHTML = 'love:' + ' ' + state.pet.love
